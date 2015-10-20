@@ -1,4 +1,5 @@
-FROM php:5.6-apache #Comprobar antes de actualizar
+FROM php:5.6-apache
+#Comprobar antes de actualizar
 
 ENV OWNCLOUD_VERSION 8.1.3
 
