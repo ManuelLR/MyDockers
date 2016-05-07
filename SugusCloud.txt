@@ -1,0 +1,20 @@
+==== A mejorar !!!! ==== 
++ Contraseña de base de datos dinámica actualmente es estática dentro del script
++ Cargar el diseño (ojo, lo suyo sería que se modernizara y solo cambiar los colores e imágenes)
+
+
+==== Ejecución ====
+
+
+docker run --name suguscloud-postgres -e POSTGRES_PASSWORD=mysecretpassword -d manuellr/suguscloudpostgres:0.0.1
+
+
+docker run -d -p 80:80 --name suguscloud-core --link suguscloud-postgres:suguspostgres -v /<mydatalocation>/apps:/var/www/html/apps -v /<mydatalocation>/config:/var/www/html/config -v /<mydatalocation>/data:/var/www/html/data manuellr/suguscloudcore:0.0.1
+
+
+En la configuración, la base de datos no es localhost si no suguspostgres
+
+
+==== Compilar las imágenes ====
+
+docker build -t manuellr/suguscloudpostgres:0.0.1 .
